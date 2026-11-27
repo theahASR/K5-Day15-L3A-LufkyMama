@@ -49,11 +49,13 @@
 
 | Lượt | Run ID | Model | Cấu hình (prompt / công cụ / thay đổi) | Đạt / tổng | % | Đạt chuẩn? |
 |---|---|---|---|---|---|---|
-| 1 | | | | __/__ | | |
-| 2 | | | | __/__ | | |
+| thử | `run-try` (không tính) | gemini-3.1-flash-lite | 3 câu đầu, kiểm nối model | — | — | — |
+| mock | `run-mock` (không tính) | fake | 30 câu chế độ giả, kiểm luồng | — | — | — |
+| 1 | `run-1@20261128-010841` | gemini-3.1-flash-lite | workflow cố định commit `35405af` | 28/30 *(agent sơ bộ)* | 93,3% | ĐẠT *(sơ bộ)* |
+| 2 | `run-2@20261128-011951` | gemini-3.1-flash-lite | + không áp ngưỡng người lớn cho tuyến ngoài phạm vi, căn cứ kèm phạm vi áp dụng (commit `23013c6`) | 29/30 *(agent sơ bộ)* | 96,7% | ĐẠT *(sơ bộ)* |
 
-Lượt chạy lại vì lỗi kỹ thuật, lượt sau CP4: ghi thêm dòng, không sửa dòng cũ.
+Cột `pass` của `eval/run-1.csv`, `eval/run-2.csv` để trống cho người chấm; bản sơ bộ của agent ở `eval/grading/`. Lượt chạy lại vì lỗi kỹ thuật hoặc lượt sau CP4: ghi thêm dòng, không sửa dòng cũ.
 
 ## 6. Lỗi chính
 
-Tóm 2–3 dòng từ `eval/report.md`: nhóm lỗi lớn nhất · đã sửa gì · còn lại gì.
+Nhóm lỗi lớn nhất ở lượt 1 là áp ngưỡng người lớn không mang thai cho thai phụ và người 15 tuổi (B12, B30); lượt 2 đã sửa bằng cách bỏ đối chiếu ngưỡng ở tuyến ngoài phạm vi. Còn lại: B22, model tự giải thích điều KB không có. Lỗi diễn đạt "điểm thấp…" khi không có điểm vẫn còn. Chi tiết: `eval/report.md`.

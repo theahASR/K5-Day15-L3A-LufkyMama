@@ -52,6 +52,8 @@ def _merge_edit(text, profile):
         for k, v in profile.items():
             if v not in (None, False, [], ""):
                 merged[k] = v
+        if (profile.get("weight_kg") or profile.get("height_m")) and profile.get("bmi") is None                 and merged.get("weight_kg") and merged.get("height_m"):  # sửa cân nặng/chiều cao → tính lại BMI
+            merged["bmi"] = round(merged["weight_kg"] / merged["height_m"] ** 2, 1)
         note("người dùng sửa dữ liệu: gộp vào hồ sơ trước")
         profile = merged
     _last_profile = profile
