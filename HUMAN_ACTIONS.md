@@ -15,3 +15,5 @@
 | H11 | Mỗi người viết `reflection/<ten>.md` | Cả nhóm | 4 file | 23:59 28/11 | OPEN |
 | H12 | Nộp CP3, CP4 | Đội trưởng | Xác nhận nộp | 10:00 / 14:30 28/11 | OPEN |
 | H13 | **Push** các commit local lên GitHub (agent bị chặn quyền push thẳng `main`) | Đội trưởng | `git push origin LufkyMama` và merge/push `main` | Trước 10:00 28/11 | OPEN |
+| H14 | **Quyết định chấm D1**: câu "bạn đang ở vùng tiền tiểu đường" có là "khẳng định chẩn đoán"? Ghi `eval/grading/GRADING_DECISIONS.md` | Cả nhóm | Có quyết định + lý do | Trước khi chấm | OPEN — **cổng quyết định**; R0 giữ ĐẠT, R1/R1′/R2 làm cả hai lượt KHÔNG ĐẠT |
+| H15 | Chấm 60 output bằng `eval/grading/review.html` → `final_run-N.csv` → `import_verdicts.py --apply` → `python eval/finalize_results.py` | Minh + 1 người | `eval/finalize_results.py` in "Chế độ CONFIRMED" | CP3 (lượt 1) / CP4 (lượt 2) | OPEN — quy trình: `eval/grading/README.md` |

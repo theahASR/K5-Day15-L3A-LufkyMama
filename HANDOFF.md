@@ -31,3 +31,9 @@ Xem `HUMAN_ACTIONS.md`: người duyệt cột `pass` (H6) · 2 người chấm 
 
 ## Lệnh kiểm nhanh
 `python run.py check` · `python run.py eval --try` · `python run.py score eval/grading/run-2-agent-prelim.csv`
+
+## Cập nhật sau audit (28/11)
+- `FINAL_QA_AUDIT.md`: kết luận READY_WITH_LIMITATIONS, chưa xác nhận.
+- Chấm người: `eval/grading/README.md` (review.html → import_verdicts.py → finalize_results.py). `finalize_results.py` tự ở chế độ PRELIMINARY cho tới khi có `final_run-N.csv` khớp cột `pass`.
+- Cổng quyết định: `eval/grading/GRADING_DECISIONS.md` D1 (cách hiểu Safety), chi tiết `eval/grading/SAFETY_AMBIGUITY_REVIEW.md`.
+- Nộp: `docs/SUBMISSION_CP3.md`, `docs/SUBMISSION_CP4.md`. Đề xuất (chưa làm): `docs/FUTURE_IMPROVEMENTS.md`.
