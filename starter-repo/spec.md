@@ -35,7 +35,23 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): __
 ## §4. Thiết kế *(guide 2.2, 3.2)*
 - **Lát cắt MỘT CÂU** (1 người dùng · 1 việc · 1 quyết định AI · 1 kết quả):
 - Không làm (≥3 điều):
-- **Sơ đồ** (ảnh / Mermaid / draw.io): [chèn ở đây]
+- **Sơ đồ** (ảnh / Mermaid / draw.io): 
+
+```mermaid
+flowchart LR
+  A["Input<br/>Người dùng mô tả tuổi, chiều cao,<br/>cân nặng, tiền sử"]
+  B["AI Core<br/>AI trích thông tin<br/>Code áp tiêu chí Bộ Y tế<br/>AI chọn lời khuyên có nguồn"]
+  C{"Chặn rủi ro<br/>Code kiểm cấp cứu, phạm vi,<br/>thiếu thông tin, nguồn"}
+  D["Output<br/>Nên xét nghiệm hoặc<br/>chưa đủ tiêu chí, kèm nguồn"]
+  E["Đi khám hoặc gọi 115"]
+  F["Hỏi thêm"]
+  G["Từ chối hoặc ngoài phạm vi"]
+  A --> B --> C
+  C -- Đạt --> D
+  C -- Nguy hiểm --> E
+  C -- Thiếu thông tin --> F
+  C -- Đòi thuốc, chẩn đoán, ngoài đối tượng --> G
+```
 - **Hình dạng:** [ ] workflow cố định · [ ] một agent · [ ] nhiều agent — 2 dòng lý do, và vì sao **không** chọn hình dạng phức tạp hơn:
 - **AI dựa vào đâu** — mỗi công cụ (khớp `codebase/tools.py`):
 
