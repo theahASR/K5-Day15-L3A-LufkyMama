@@ -1,52 +1,45 @@
-# Mô phỏng chi phí khi dùng thật — điền ở guide bước 4.2.
-# Ôn lại: ngày 13, ngày 1, ngày 14 · lab ngày 13, lab ngày 14.
-# Mọi số phải có nguồn (data / phỏng vấn / khảo sát / quy mô khoá có nguồn) hoặc ghi rõ "(tự ước tính)".
-# Chạy: python run.py simulate --try   (10 phiên, kiểm khung — làm trước CP3)
-#       python run.py simulate         (đủ số phiên dưới đây — bản nộp CP4)
-# Thay mọi dòng "(ví dụ)" bằng số và nguồn của nhóm; simulate nhắc nếu còn sót.
+# Mô phỏng chi phí khi dùng thật — guide 4.2. Số không có nguồn ghi "(tự ước tính)".
+# Chạy: python run.py simulate --try   (10 phiên)  ·  python run.py simulate  (bản nộp)
 
-sessions: 50        # số phiên mô phỏng — bản nộp ≥50
-seed: 42            # giữ cố định để chạy lại ra cùng chuỗi phiên
+sessions: 50
+seed: 42
 
-users:              # số người dùng thật nếu đưa vào dùng — 3 kịch bản, ở quy mô thật của sản phẩm
-                    # track A: khoá học · track B–F: người dùng của sản phẩm / nhóm nhắm tới, nguồn công khai có link
-  low: 300
-  base: 700
-  high: 1000
-  source: "(ví dụ) track A — thay bằng số của nhóm. Cơ sở: lớp L3 hơn 700 học viên (README hackathon); thấp, cao: (tự ước tính)"
+users:
+  low: 1000
+  base: 5000
+  high: 20000
+  source: "(tự ước tính) quy mô thí điểm: thấp = 1 phòng khám/công ty dùng cho đợt khám sức khỏe định kỳ; cơ sở = 5.000 người (khớp spec §2); cao = 20.000 người khi tích hợp vào app khám định kỳ. Chưa có nguồn công khai cho số người dùng của sản phẩm này."
 
-personas:           # ≥3 kiểu người dùng; share cộng lại = 1
-  - name: dung_it
-    share: 0.5              # tỉ lệ người dùng kiểu này
-    uses_per_month: 4       # số phiên / người / tháng
-    turns_per_session: 1    # số lượt hỏi trong một phiên
-    source: "(ví dụ) phỏng vấn P1, P3 — thay bằng nguồn của nhóm"
-  - name: dung_vua
+personas:
+  - name: mot_lan_sau_kham
+    share: 0.6
+    uses_per_month: 1
+    turns_per_session: 2
+    source: "(tự ước tính) người vừa có kết quả khám định kỳ, hỏi 1 lần, thêm 1 câu hỏi lại (lúc đo/đơn vị)"
+    types: [thuong, kho]
+  - name: tu_do_tai_nha
     share: 0.3
-    uses_per_month: 10
+    uses_per_month: 4
+    turns_per_session: 2
+    source: "(tự ước tính) người tự mua máy đo (vd evidence q/5533, q/3032), hỏi khoảng 1 lần/tuần"
+    types: [thuong, kho]
+  - name: hoi_ho_nguoi_than
+    share: 0.1
+    uses_per_month: 2
     turns_per_session: 3
-    source: "(ví dụ) khảo sát n = 24, câu 3"
-  - name: dung_nhieu
-    share: 0.2
-    uses_per_month: 20
-    turns_per_session: 5
-    source: "(ví dụ) data/preclass: đếm số lượt / người — cách đếm ở evidence/data-mining.md"
-# Mỗi lượt hỏi lấy ngẫu nhiên một đầu vào trong eval/benchmark.csv (type thuong và kho).
-# Persona hỏi kiểu riêng: thêm vào persona đó
-#     types: [thuong, kho, tu_choi]
-# hoặc
-#     inputs: ["câu hỏi kiểu 1", "câu hỏi kiểu 2"]
+    source: "(tự ước tính) con cháu hỏi hộ cha mẹ (vd B11), hay hỏi thêm về thuốc nên có câu từ chối"
+    types: [thuong, kho, tu_choi]
 
-prices:             # USD / 1 triệu token — chép từ further-reading/model-prices.md của repo đề. ≥2 mức model
+prices:
   - model: gemini-3.1-flash-lite
     input: 0.25
     output: 1.50
-    source: "(ví dụ) https://ai.google.dev/gemini-api/docs/pricing · xem 25/11/2026"
-  - model: gemini-4-hydrogen
+    source: "https://ai.google.dev/gemini-api/docs/pricing · bảng giá BTC further-reading/model-prices.md, xem 25/11/2026 · model đã dùng đo token"
+  - model: gemini-3.8-flash
     input: 1.50
     output: 7.50
-    source: "(ví dụ) https://ai.google.dev/gemini-api/docs/pricing · xem 25/11/2026"
+    source: "https://ai.google.dev/gemini-api/docs/pricing · bảng giá BTC, xem 25/11/2026 · giá từ 01/01/2027 (giá thấp 0.75/3.75 chỉ đến 31/12/2026) · tính trên token đo bằng gemini-3.1-flash-lite"
 
-usd_to_vnd:         # tuỳ chọn: điền thì bản tóm tắt in thêm tiền Việt
+usd_to_vnd:
   rate:
   source:
