@@ -1,23 +1,34 @@
 # Dàn slide → lấy số từ file nào
 
-> Làm ở guide bước 5.1. Luật: **không có bằng chứng thì không có slide** — mỗi trang ≥1 con số / trích dẫn có nguồn / kết quả đo.
-> Xuất PDF thành `demo-slides.pdf` ở thư mục gốc repo, nộp tại CP4 14:30 Thứ Bảy 28/11. Nộp PDF, không nộp link.
+Nguồn HTML: `slides/slides.html` → xuất `demo-slides.pdf` (8 trang) bằng Chrome headless:
+`"C:\Program Files\Google\Chrome\Application\chrome.exe" --headless --disable-gpu --no-pdf-header-footer --print-to-pdf=demo-slides.pdf slides/slides.html`
 
 | # | Trang | Có gì | Số lấy từ | Xong |
 |---|---|---|---|---|
-| 1 | Người dùng & pain | Ai · việc gì · chỗ đau + số và trích dẫn | `evidence/summary.md` | ☐ |
-| 2 | Vì sao chọn bài này | Bảng impact rút gọn + hướng bị loại | `spec.md` §2 | ☐ |
-| 3 | Giải pháp | Lát cắt một câu · sơ đồ · AI tự làm đến đâu, vì sao | `spec.md` §4 | ☐ |
-| 4 | Demo live | 1 trường hợp thường + 1 trường hợp khó (lấy từ bộ câu thử); mạng hỏng → video dự phòng | `eval/benchmark.csv` | ☐ |
-| 5 | **Đánh giá thế nào** | Dataset · bộ câu thử · metric · lượt 1 → lượt 2 so với chuẩn "đạt" (kèm run ID) · lỗi chính | `eval/README.md`, `eval/report.md` | ☐ |
-| 6 | **Chi phí khi dùng thật** | Chi phí / task thành công · 3 kịch bản · so với impact | `cost/cost-estimate.md` | ☐ |
-| 7 | Kết luận | Go / iterate / stop — dẫn số ở trang 1, 5, 6 | — | ☐ |
-| 8 | Nếu có thêm 1 tuần | 2–3 việc, trỏ về lỗi còn lại / phản hồi người dùng | `eval/report.md` mục 4 · `validation/log.md` | ☐ |
+| 1 | Người dùng & pain | 8/125 (6,4%) ngược giả thuyết · 67,6% (Miyakawa, tham khảo) · 2 trích nguyên văn | `evidence/summary.md` | ☑ |
+| 2 | Vì sao chọn bài này | 4 hướng, 3 loại · impact 150.000 phút/tháng *(tự ước tính)* | `spec.md` §2 | ☑ |
+| 3 | Giải pháp | luồng chặn trước → căn cứ → AI → chặn sau · không làm · vì sao workflow · G10 · AUC 0,787 | `spec.md` §4, `ml/metrics.json` | ☑ |
+| 4 | Demo live | B05 thường · B08 khó · B15 an toàn · câu lạ | `eval/benchmark.csv`, `eval/run-2.csv` | ☑ (link video chờ H9) |
+| 5 | Đánh giá | 7 metric lượt 1 → 2 · lỗi B30/B12 · cải tiến · còn B22 | `eval/report.md` | ☑ (chấm sơ bộ) |
+| 6 | Chi phí | chi phí / task thành công · 3 kịch bản · 2 model · so impact | `cost/cost-estimate.md`, `cost/simulate-1-summary.md` | ☑ |
+| 7 | Kết luận | ITERATE + lý do | trang 1, 5, 6 | ☑ |
+| 8 | Thêm 1 tuần | 5 việc trỏ về lỗi còn lại | `eval/report.md` mục 5 | ☑ |
 
-**Trước khi lên:** tải repo về một máy khác (hoặc thư mục mới), chạy theo mục "Chạy trong 3 phút" của `README.md` · `.env` có trên máy demo, đã gọi thử 1 câu trong vòng 1 giờ trước giờ demo · video dự phòng mở được bằng cửa sổ ẩn danh · biết bản chạy thử sẽ làm gì với **1 câu thử lạ** của giám khảo.
+## Ai nói trang nào (đề xuất — nhóm tự chốt)
 
-Ai nói trang nào (mỗi người ≥1 phần):
+| Trang | Người nói | Câu giám khảo hay hỏi, phải trả lời được |
+|---|---|---|
+| 1–2 | Hồ Đức Mạnh | Vì sao 8/125 thấp mà vẫn làm? Impact lấy số ở đâu? |
+| 3 | Nguyễn Anh Tú | Vì sao workflow chứ không phải agent? Lỗi nguy hiểm nhất là gì, chặn ở đâu? |
+| 3 (ML) | Bùi Thế Anh | Vì sao chỉ cho điểm khi là nữ + OGTT? AUC 0,787 nghĩa là gì, recall 0,52 thì sao? |
+| 4–6 | Vũ Nguyễn Hoàng Minh | Chi phí / task thành công tính thế nào? Chấm pass ra sao? |
+| 7–8 | Cả nhóm | Go / iterate / stop vì sao? |
 
-| Trang | Người nói |
-|---|---|
-| | |
+## Script nói (~5 phút)
+1. "Người có một con số đường huyết trong tay nhưng không biết nó nghĩa là gì. Ví dụ thật trên diễn đàn: tự đo hai tay lệch 10–20 mg/dL, không biết số nào đúng. Đếm 125 câu hỏi công khai, chỉ 8 câu hỏi đúng kiểu này, ngược giả thuyết của nhóm. Lý do: diễn đàn cấm câu tư vấn cá nhân. Nên nhóm ghi rõ pain chưa được định lượng."
+2. "Ba hướng bị loại… impact 30 phút/người/tháng, toàn tự ước tính."
+3. "Code chặn cấp cứu trước khi AI nói gì. Model ML chỉ cho điểm khi dữ liệu người dùng giống dữ liệu train. AI chỉ được dùng căn cứ có mã nguồn."
+4. Demo 3 câu + câu lạ.
+5. "Chuẩn đạt chốt từ tối qua, không sửa. Lượt 1: 28/30, lỗi đau nhất là xếp loại đường huyết của người 15 tuổi bằng ngưỡng người lớn. Sửa một chỗ, lượt 2: 29/30."
+6. Chi phí.
+7. "Iterate: hệ thống an toàn và rẻ, nhưng chưa chứng minh được pain bằng số của người dùng thật."

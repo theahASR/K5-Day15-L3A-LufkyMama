@@ -140,10 +140,10 @@ Hệ thống chỉ được đánh giá là **ĐẠT** khi đồng thời đáp 
 Các tiêu chí và ngưỡng đánh giá được chốt trước **19:30 Thứ Sáu, ngày 27/11/2026** và không thay đổi sau CP2. Kết quả thực nghiệm sẽ được bổ sung sau khi chạy benchmark tại CP3 và CP4. Chi tiết được ghi trong `eval/report.md` và hồ sơ chạy trong `eval/README.md`.
 
 ## §8. Chi phí khi dùng thật *(guide 4.2)*
-- Persona + giá: `cost/personas.yaml` · lượt mô phỏng: **chưa chạy** (cần model thật)
-- Chi phí / task thành công: **chưa đo**
-- Chi phí / tháng ở quy mô thật: **chưa đo** → `cost/cost-estimate.md`
-- So với impact / người / tháng (§2: 30 phút *(tự ước tính)*): **chưa đo**
+- Persona + giá: `cost/personas.yaml` (3 persona, *tự ước tính*; 2 model Gemini, giá bảng BTC xem 25/11/2026) · lượt mô phỏng: `cost/simulate-1.csv` (**50 phiên**, seed 42, 0 lỗi, run ID `simulate-1@20261128-012440`)
+- Chi phí / task thành công: **$0,0021** (`gemini-3.1-flash-lite`, tỉ lệ đạt lượt 2 = 29/30, chấm sơ bộ) · $0,0116 (`gemini-3.8-flash`, giá từ 01/01/2027, token đo trên flash-lite)
+- Chi phí / tháng (flash-lite): thấp $4,17 (1.000 người) · cơ sở $20,83 (5.000) · cao $83,31 (20.000) → chi tiết `cost/cost-estimate.md`
+- So với impact / người / tháng (§2: 30 phút *(tự ước tính)*): chi phí $0,0042 / người / tháng, quá nhỏ để quyết định đi hay dừng. Điều quyết định là pain chưa được đo thật.
 
 ## §9. Rủi ro & an toàn
 - **Dữ liệu:** không thu, không lưu hồ sơ người dùng (không đăng nhập, không database; `_last_profile` chỉ nằm trong bộ nhớ của phiên app). Benchmark và persona là câu dựng hoặc dữ liệu công khai đã ẩn danh (Pima, câu hỏi SE đã bỏ tên). Không commit `.env`. Câu người dùng gửi lên API model của nhà cung cấp; gói miễn phí có thể dùng dữ liệu để cải thiện model, nên **không nhập thông tin định danh** (ghi trong README).
@@ -168,6 +168,11 @@ Các tiêu chí và ngưỡng đánh giá được chốt trước **19:30 Thứ
 | 28/11 ~01:00 | Benchmark 15 → 30 câu (B16–B30), giữ nguyên B01–B15 | CP3 cần 20–30 câu; thêm 5 dòng Pima, 4 câu hỏi thật SE, 6 câu tự viết; B28 là câu tấn công thứ 3 |
 | 28/11 ~01:00 | Sửa lỗi đọc chỉ số **trước lượt 1** (giới tính, "lá ổi non" ≠ "nôn", glucose 0, HbA1c hiện tại, số chênh lệch) | Lỗi parser phát hiện khi chạy chế độ giả (commit `dc99869`). Benchmark và chuẩn "đạt" không đổi |
 | | §7 ghi "15 câu" lúc chốt CP2; benchmark nay 30 câu, ngưỡng % giữ nguyên | Không sửa §7 sau CP2 |
+| 28/11 01:08 | Lượt 1 `run-1@20261128-010841` (gemini-3.1-flash-lite, 30 câu, 0 lỗi): 28/30 *(agent sơ bộ)* | `eval/report.md` |
+| 28/11 ~01:15 | Cải tiến nhắm nhóm lỗi A: tuyến `ngoai_pham_vi` không đối chiếu ngưỡng người lớn; căn cứ kèm phạm vi áp dụng; prompt cấm phân vùng (commit `23013c6`) | B30 trượt, B12 grounded = 0 ở lượt 1 |
+| 28/11 01:19 | Lượt 2 `run-2@20261128-011951`: 29/30 *(agent sơ bộ)*; B30, B12 đã sửa; B22 vẫn trượt | `eval/report.md` mục 4 |
+| 28/11 01:24 | Mô phỏng chi phí 50 phiên `simulate-1@20261128-012440` | §8 |
+| 28/11 ~01:40 | Sửa tính lại BMI khi người dùng "sửa: nặng … kg" (không ảnh hưởng benchmark) | Phát hiện khi soạn kịch bản người dùng thử |
 
 **Sau CP4 (đến 23:59 Thứ Bảy 28/11)**
 
