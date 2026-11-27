@@ -54,10 +54,12 @@ def extract_profile(text: str) -> dict:
     p = {"sex": None, "age": None, "pregnant": False, "glucose_mgdl": None, "glucose_unit_raw": None,
          "glucose_context": None, "hba1c": None, "bmi": None, "height_m": None, "weight_kg": None,
          "diastolic_bp": None, "family_history": False, "symptoms": [], "notes": []}
-    if re.search(r"\bnu\b|phu nu|\bchi\b|\bba\b|me minh|vo minh", f):
+    low = text.lower()
+    # giới của NGƯỜI ĐƯỢC HỎI: lấy từ chữ CÓ dấu ("nam" ≠ "năm", "chị" ≠ "chỉ", "bà tôi" là người thân)
+    if re.search(r"(?<!\w)(nữ|phụ nữ)(?!\w)", low) or re.search(r"(?<!\w)mẹ (tôi|mình) \d+ tuổi", low):
         p["sex"] = "female"
-    if re.search(r"\bnam\b|dan ong|\banh\b|bo minh|bo toi|chong minh|benh nhan nam|\bong\b", f):
-        p["sex"] = "male" if p["sex"] is None or re.search(r"\bnam\s+\d", f) else p["sex"]
+    if re.search(r"(?<!\w)(nam|đàn ông)(?!\w)", low) or re.search(r"(?<!\w)bố (tôi|mình) \d+ tuổi", low):
+        p["sex"] = "male" if p["sex"] is None else p["sex"]
     if re.search(r"mang thai (tuan|thang)|dang mang thai|dang co thai|co bau|thai ky|tuan thu \d+ (cua )?thai", f):
         p["pregnant"] = True
         p["sex"] = "female"
@@ -82,16 +84,22 @@ def extract_profile(text: str) -> dict:
     m = re.search(r"huyet ap tam truong\s*" + NUM, f)
     if m:
         p["diastolic_bp"] = _num(m.group(1))
-    m = re.search(r"hba1c[^0-9]{0,15}" + NUM, f)
+    m = re.search(r"hba1c[^0-9]{0,40}" + NUM, f)
     if m:
         p["hba1c"] = _num(m.group(1))
+        later = re.search(r"hba1c[^.?!]{0,60}?(?:xuong|con)\s*" + NUM, f)  # "giảm từ 13% xuống 9%" → số hiện tại
+        if later:
+            p["hba1c"] = _num(later.group(1))
     # Đường huyết: lấy số đầu tiên đứng sau "đường huyết"/"glucose" kèm đơn vị
     gm = None
     kw = re.search(r"duong huyet|glucose", f)
     if kw:  # số đầu tiên sau từ khoá, bỏ qua số chỉ thời gian ("2 giờ", "tuần 26")
         for cand in re.finditer(NUM + r"\s*(mg/?dl|mmol/?l)?", f[kw.start(): kw.start() + 120]):
             tail = f[kw.start() + cand.end(): kw.start() + cand.end() + 6]
-            if cand.group(2) or not re.match(r"\s*(gio|h|tieng|phut|lan|tuan)", tail):
+            head = f[max(0, kw.start() + cand.start() - 25): kw.start() + cand.start()]
+            if re.search(r"lech|chenh|khac nhau", head):  # số là độ chênh, không phải số đo
+                continue
+            if cand.group(2) or not re.match(r"\s*(gio|h\b|tieng|phut|lan|tuan|-\s*\d)", tail):
                 gm = (cand, kw.start())
                 break
     if gm:
@@ -114,9 +122,14 @@ def extract_profile(text: str) -> dict:
             if any(re.search(x, window) for x in pats):
                 p["glucose_context"] = name
                 break
-    if re.search(r"gia dinh (co nguoi|co ai)|bo me .*tieu duong|tien su gia dinh|me (toi|minh) bi tieu duong", f):
+    if re.search(r"gia dinh (co nguoi|co ai)|bo me .*tieu duong|tien su gia dinh|"
+                 r"(me|bo|ba|ong|anh|chi|em)( ruot)? (toi|minh) (bi|mac|tung bi) (benh )?tieu duong", f):
         p["family_history"] = True
     for label, pat in {**EMERGENCY_SYMPTOMS, **HYPO_SYMPTOMS, **HYPER_SYMPTOMS}.items():
+        if label == "nôn / buồn nôn":  # "nôn" mất dấu trùng "non" (lá ổi non) → so trên chữ có dấu
+            if re.search(r"(?<!\w)(buồn nôn|nôn)(?!\w)", low):
+                p["symptoms"].append(label)
+            continue
         if re.search(pat, f):
             p["symptoms"].append(label)
     return p
@@ -127,6 +140,8 @@ def check_red_flags(profile: dict) -> dict:
     """check_red_flags · Input: hồ sơ (dict) · Output: {"emergency": bool, "kind", "reasons"} —
     dấu hiệu cấp cứu được ưu tiên trước mọi dự đoán/tư vấn · Không tác động ra ngoài."""
     g, sym = profile.get("glucose_mgdl"), set(profile.get("symptoms") or [])
+    if g is not None and g < 20:  # số không hợp lệ (vd 0) → validate_profile hỏi lại, không coi là hạ đường huyết
+        g = None
     reasons, kind = [], None
     severe = sym & set(EMERGENCY_SYMPTOMS)
     if g is not None and g < 70 and (sym & set(HYPO_SYMPTOMS) or severe):
@@ -155,10 +170,12 @@ def check_scope(text: str, profile: dict) -> dict:
         "doi_chan_doan": r"khang dinh .*(mac|bi)|chan doan (giup|cho)|(toi|minh) co bi tieu duong khong|co bi tieu duong khong",
         "doi_ke_thuoc": r"ke (luon |don |thuoc)|ke .*thuoc|don thuoc|mua (thuoc )?uong|thuoc gi",
         "doi_lieu": r"lieu|bao nhieu (mg|don vi|ui)",
-        "doi_ngung_doi_thuoc": r"ngung thuoc|ngung uong|bo thuoc|doi thuoc|dung thuoc|ngung .*thuoc",
-        "bo_qua_an_toan": r"bo qua (moi |cac )?(huong dan|canh bao|quy tac)|ignore (all|previous)|cam khuyen|dung khuyen",
+        "doi_ngung_doi_thuoc": r"ngung thuoc|ngung uong|bo thuoc|doi thuoc|dung thuoc|ngung .*thuoc|thay (cho )?thuoc",
+        "bo_qua_an_toan": r"bo qua (moi |cac )?(huong dan|canh bao|quy tac)|ignore (all|previous)|cam khuyen|dung khuyen|"
+                          r"dong vai|system prompt|khong phai (la )?ai|in ra (toan bo )?(huong dan|prompt)",
+        "da_chan_doan": r"(da|duoc) chan doan (tieu duong|dai thao duong)|chan doan .*tieu duong type 2 .*truoc",
         "tu_xung_bac_si": r"toi la bac si|minh la bac si|\bbac si (khoa|noi tiet).*(dang|ban)",
-        "meo_chua_can_cu": r"la oi|muop dang|thao duoc|meo dan gian|chua khoi|khoi han|nuoc ep .*ha duong",
+        "meo_chua_can_cu": r"la oi|muop dang|thao duoc|meo dan gian|chua khoi|khoi han|nuoc ep .*ha duong|vien que|cach tu nhien|thuc pham chuc nang",
         "an_kieng_chat": r"an kieng chat|giam can .*nhanh|nhin (an|duong)",
     }
     for name, pat in rules.items():
@@ -183,8 +200,12 @@ def validate_profile(profile: dict) -> dict:
     if g is not None and not 20 <= g <= 800:
         invalid.append("đường huyết %g mg/dL nằm ngoài khoảng đo hợp lý" % g)
         ask.append("đo lại đường huyết và ghi rõ đơn vị (mg/dL hay mmol/L)")
+    warnings = []
     if bp is not None and not 30 <= bp <= 140:
         invalid.append("huyết áp tâm trương %g mmHg không hợp lý" % bp)
+    elif bp is not None and (bp < 50 or bp >= 90):
+        warnings.append("huyết áp tâm trương %g mmHg nằm ngoài khoảng thường gặp, nên đo lại hoặc hỏi nhân viên y tế"
+                        " (quy tắc an toàn của nhóm, không phải ngưỡng chẩn đoán)" % bp)
     if age is not None and not 1 <= age <= 110:
         invalid.append("tuổi %d không hợp lý" % age)
     if g is not None and profile.get("glucose_context") is None:
@@ -200,7 +221,7 @@ def validate_profile(profile: dict) -> dict:
             ask.append("chiều cao và cân nặng (để tính BMI)")
     if age is None:
         missing.append("tuổi")
-    return {"invalid": invalid, "missing": missing, "ask": ask}
+    return {"invalid": invalid, "missing": missing, "ask": ask, "warnings": warnings}
 
 
 @tool

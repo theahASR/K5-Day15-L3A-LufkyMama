@@ -145,7 +145,7 @@ def answer(text: str) -> dict:
         "chi_so_doc_duoc": {k: v for k, v in profile.items() if v not in (None, False, [], "")},
         "dau_hieu_cap_cuu": red,
         "yeu_cau_dac_biet": scope["flags"],
-        "du_lieu_khong_hop_le": val["invalid"], "can_hoi": val["ask"],
+        "du_lieu_khong_hop_le": val["invalid"], "can_hoi": val["ask"], "canh_bao_can_do_lai": val.get("warnings", []),
         "ket_qua_mo_hinh": pred,
         "doi_chieu_nguong": guide,
         "can_cu": [{"ma": e["source_id"], "noi_dung": e["content"], "nguon": e["source_url"]} for e in kb],
