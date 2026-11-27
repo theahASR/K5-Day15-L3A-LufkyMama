@@ -1,11 +1,9 @@
-# Giả thuyết — viết TRƯỚC khi tìm bằng chứng (5 phút, commit ngay)
+# Giả thuyết pain — viết trước khi tìm bằng chứng
 
-> Điền ở guide bước 1.1. Ôn lại: ngày 2 · lab ngày 2.
-> Viết **trước** khi đọc dòng data đầu tiên hay hỏi người đầu tiên, để không sửa cho khớp kết quả. Kết quả ngược giả thuyết vẫn đủ điểm nếu số là thật.
+| # | Giả thuyết (CP1) | Cách kiểm | Kết quả (28/11/2026) |
+|---|---|---|---|
+| H1 | ≥60% người tự tra cứu chỉ số đường huyết/BMI không biết bước tiếp theo ngoài việc chờ đi khám | Đào data câu hỏi công khai (`data-mining.md`); phỏng vấn | **Chưa xác nhận.** Đào data: 8/125 (6,4%) theo luật, ngược giả thuyết, nhưng nguồn lệch (cấm câu tư vấn cá nhân). Phỏng vấn chưa làm |
+| H2 | Người tự đo không biết số phụ thuộc lúc đo (lúc đói / sau ăn) và đơn vị | Đào data nhãn L4; phỏng vấn câu 2 | Đào data 1/125, và câu đó là dương tính giả. Có ví dụ định tính (q/5533, q/3032). Chưa đủ |
+| H3 | Hiểu biết chung về tiểu đường ở người lớn Việt Nam thấp | Nghiên cứu công bố | Miyakawa 2017 (Khánh Hòa): 254/376 (67,6%) không hiểu hoặc chưa nghe về tiểu đường. Là tài liệu tham khảo, không phải nguồn của nhóm |
 
-- Ngày giờ viết: __
-- Người dùng chính (một vai cụ thể): __
-- **Mình nghĩ:** [ai] gặp khó khi [việc] vì [lý do], hậu quả là [mất gì].
-- **Có thể còn cách giải thích khác:** __
-- **Mình đúng nếu thấy:** [một con số nhóm tự chọn] — vd "≥2/3 người kể được một lần như thế trong 1 tháng qua" hoặc "≥x/N học viên bỏ ở bước này" *(ví dụ)*
-- **Nguồn sẽ dùng** (≥1 nguồn đạt ngưỡng, guide 1.2): [ ] đào data · [ ] phỏng vấn ≥3 · [ ] khảo sát ≥20 — nguồn chính: __ · nguồn để kiểm lại: __
+Không dùng tỉ lệ mắc tiểu đường (prevalence) để suy ra tỉ lệ người gặp khó khi đọc chỉ số.

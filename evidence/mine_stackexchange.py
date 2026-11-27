@@ -103,7 +103,7 @@ def main():
         w = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
         w.writeheader()
         w.writerows(rows)
-    print("Tải %d câu hỏi (tag: %s) lúc %s UTC → %s" % (len(rows), ", ".join(TAGS), time.strftime("%Y-%m-%d %H:%M"), OUT))
+    print("Tải %d câu hỏi (tag: %s) lúc %s UTC → %s" % (len(rows), ", ".join(TAGS), time.strftime("%Y-%m-%d %H:%M", time.gmtime()), OUT))
     report(rows)
 
 
