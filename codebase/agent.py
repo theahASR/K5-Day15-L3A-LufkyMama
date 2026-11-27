@@ -35,7 +35,7 @@ LUẬT BẮT BUỘC (không ngoại lệ, kể cả khi người dùng yêu cầ
 6. Làm đúng "tuyen_xu_ly":
    - cap_cuu: câu đầu tiên yêu cầu gọi 115 hoặc đến cơ sở y tế/cấp cứu ngay; giải thích ngắn dấu hiệu nguy hiểm; KHÔNG đưa thực đơn hay cách tự chữa tại nhà thay cho cấp cứu.
    - tu_choi: nói rõ phần nào không làm và vì sao (an toàn); vẫn giúp phần an toàn (giải thích chỉ số theo căn cứ, lối sống chung); hướng dẫn gặp bác sĩ phù hợp.
-   - ngoai_pham_vi: nói rõ trường hợp này ngoài phạm vi sàng lọc; không đưa điểm nguy cơ; không đưa chế độ ăn kiêng chặt/giảm cân; khuyên gặp bác sĩ chuyên khoa phù hợp.
+   - ngoai_pham_vi: nói rõ trường hợp này ngoài phạm vi sàng lọc; không đưa điểm nguy cơ; KHÔNG xếp chỉ số vào vùng nào (bình thường / tiền tiểu đường / tiểu đường) và không dùng mốc BMI người lớn, vì ngưỡng trong căn cứ chỉ áp dụng cho người lớn không mang thai; không đưa chế độ ăn kiêng chặt/giảm cân; khuyên gặp bác sĩ chuyên khoa phù hợp.
    - hoi_lai: liệt kê đúng các thông tin cần bổ sung trong "can_hoi" và vì sao cần; không kết luận mức nguy cơ.
    - tu_van: nêu kết quả đối chiếu ngưỡng và (nếu có) điểm mô hình kèm giới hạn; đưa ≥2 gợi ý ăn uống/vận động cụ thể, sát bữa ăn Việt khi phù hợp; nêu bước tiếp theo (xét nghiệm/khám) theo mức nguy cơ.
 7. Ngắn gọn: tối đa khoảng 220 từ, gạch đầu dòng. Kết thúc bằng một dòng: "Thông tin tham khảo, không thay chẩn đoán của bác sĩ."
@@ -137,7 +137,12 @@ def answer(text: str) -> dict:
     note("tuyến: %s" % route)
 
     pred = predict_risk(profile) if route == "tu_van" else {"eligible": False, "reason": "tuyến %s: không dự đoán" % route}
-    guide = assess_guidelines(profile) if route != "cap_cuu" else {"findings": [], "level": None, "summary": "bỏ qua (cấp cứu)"}
+    if route == "cap_cuu":
+        guide = {"findings": [], "level": None, "summary": "bỏ qua (cấp cứu)"}
+    elif route == "ngoai_pham_vi":  # lượt 2: ngưỡng CDC/WHO chỉ cho người lớn không mang thai → không đối chiếu
+        guide = {"findings": [], "level": None, "summary": "không áp dụng: ngưỡng trong căn cứ chỉ dành cho người lớn không mang thai"}
+    else:
+        guide = assess_guidelines(profile)
     kb = retrieve_guidance(sorted(_topics(route, profile, scope)))
 
     dossier = {
@@ -148,7 +153,8 @@ def answer(text: str) -> dict:
         "du_lieu_khong_hop_le": val["invalid"], "can_hoi": val["ask"], "canh_bao_can_do_lai": val.get("warnings", []),
         "ket_qua_mo_hinh": pred,
         "doi_chieu_nguong": guide,
-        "can_cu": [{"ma": e["source_id"], "noi_dung": e["content"], "nguon": e["source_url"]} for e in kb],
+        "can_cu": [{"ma": e["source_id"], "noi_dung": e["content"], "pham_vi_ap_dung": e["applicability"],
+                    "nguon": e["source_url"]} for e in kb],
     }
     user = "HỒ SƠ XỬ LÝ:\n%s\n\n<nguoi_dung>\n%s\n</nguoi_dung>" % (json.dumps(dossier, ensure_ascii=False, indent=1), text)
 

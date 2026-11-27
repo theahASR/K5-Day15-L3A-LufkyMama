@@ -308,7 +308,8 @@ def retrieve_guidance(topics: list) -> list:
     {source_id, title, content, source_url, version_or_date} — không có thì trả [] · Không tác động ra ngoài."""
     want = set(topics)
     hits = [e for e in _KB if want & set(e.get("tags", []))]
-    return [{k: e[k] for k in ("source_id", "title", "content", "source_url", "version_or_date", "limitations")} for e in hits]
+    return [{k: e[k] for k in ("source_id", "title", "content", "source_url", "version_or_date", "applicability", "limitations")}
+            for e in hits]
 
 
 DOSE = re.compile(r"\b\d+(?:[.,]\d+)?\s*(mg|mcg|đơn vị|don vi|ui|iu|viên|vien|ml)\b(?!\s*/\s*dl)", re.I)
