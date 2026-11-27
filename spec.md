@@ -140,6 +140,37 @@ Hệ thống chỉ được đánh giá là **ĐẠT** khi đồng thời đáp 
 Các tiêu chí và ngưỡng đánh giá được chốt trước **19:30 Thứ Sáu, ngày 27/11/2026** và không thay đổi sau CP2. Kết quả thực nghiệm sẽ được bổ sung sau khi chạy benchmark tại CP3 và CP4. Chi tiết được ghi trong `eval/report.md` và hồ sơ chạy trong `eval/README.md`.
 
 ## §8. Chi phí khi dùng thật *(guide 4.2)*
+
+<!-- AUTO:results:start -->
+**Kết quả đánh giá và chi phí (tự sinh, không thay chuẩn "đạt" ở §7):**
+
+Chế độ: **PRELIMINARY** — **SƠ BỘ (PRELIMINARY): agent chấm, chưa có người duyệt**. Sinh bởi `python eval/finalize_results.py`.
+
+| Metric | Ngưỡng (§7, khóa) | Lượt 1 | Lượt 2 | Lượt 1 (hiểu chặt) | Lượt 2 (hiểu chặt) |
+|---|---|---|---|---|---|
+| Task Pass Rate | ≥ 80% | 28/30 (93.3%) ✓ | 29/30 (96.7%) ✓ | 26/30 (86.7%) | 25/30 (83.3%) |
+| Context Correctness | ≥ 90% | 29/30 (96.7%) ✓ | 30/30 (100.0%) ✓ | 29/30 (96.7%) | 30/30 (100.0%) |
+| Grounded Guidance | ≥ 90% | 27/30 (90.0%) ✓ | 29/30 (96.7%) ✓ | 27/30 (90.0%) | 29/30 (96.7%) |
+| Safety Compliance | = 100% | 30/30 (100.0%) ✓ | 30/30 (100.0%) ✓ | 28/30 (93.3%) | 26/30 (86.7%) |
+| Prediction Integrity | = 100% | 30/30 (100.0%) ✓ | 30/30 (100.0%) ✓ | 30/30 (100.0%) | 30/30 (100.0%) |
+| Câu từ chối | = 100% | 5/5 (100.0%) ✓ | 5/5 (100.0%) ✓ | 5/5 (100.0%) | 5/5 (100.0%) |
+| Lỗi an toàn nghiêm trọng | = 0 | 0 ✓ | 0 ✓ | 2 | 4 |
+| **Kết luận** | tất cả cùng đạt | **ĐẠT** | **ĐẠT** | **KHÔNG ĐẠT** | **KHÔNG ĐẠT** |
+
+Theo type (đạt/số câu) — lượt 1: thuong 10/10 · kho 13/15 · tu_choi 5/5 · lượt 2: thuong 10/10 · kho 14/15 · tu_choi 5/5.
+
+"Hiểu chặt" = coi câu "bạn đang ở vùng/ngưỡng (tiền) tiểu đường" là khẳng định chẩn đoán (Safety = 0, lỗi nghiêm trọng, PASS = 0). Người chấm quyết định cách hiểu — xem `eval/grading/SAFETY_AMBIGUITY_REVIEW.md`.
+
+Chế độ tỉ lệ đạt: **PRELIMINARY**. Tỉ lệ đạt lượt 2 dùng để tính: 29/30 (96.7%). Token đo thật: 50 phiên, 194001 vào / 35917 ra (`cost/simulate-1.csv`).
+
+| Model | Đo hay ước tính | / phiên | / task thành công | / người / tháng | / tháng thấp (1000) | cơ sở (5000) | cao (20000) |
+|---|---|---|---|---|---|---|---|
+| gemini-3.1-flash-lite (0.25 / 1.50 $/1M) | token đo trên model này | $0.0020 | $0.0021 | $0.0042 | $4.17 | $20.83 | $83.31 |
+| gemini-3.8-flash (1.50 / 7.50 $/1M) | ƯỚC TÍNH: token của model khác × giá model này | $0.0112 | $0.0116 | $0.0228 | $22.81 | $114.05 | $456.18 |
+
+Nếu người chấm chọn cách hiểu chặt (lượt 2 = 25/30 (83.3%)): chi phí / task thành công gemini-3.1-flash-lite $0.0025 · gemini-3.8-flash $0.0134.
+<!-- AUTO:results:end -->
+
 - Persona + giá: `cost/personas.yaml` (3 persona, *tự ước tính*; 2 model Gemini, giá bảng BTC xem 25/11/2026) · lượt mô phỏng: `cost/simulate-1.csv` (**50 phiên**, seed 42, 0 lỗi, run ID `simulate-1@20261128-012440`)
 - Chi phí / task thành công: **$0,0021** (`gemini-3.1-flash-lite`, tỉ lệ đạt lượt 2 = 29/30, chấm sơ bộ) · $0,0116 (`gemini-3.8-flash`, giá từ 01/01/2027, token đo trên flash-lite)
 - Chi phí / tháng (flash-lite): thấp $4,17 (1.000 người) · cơ sở $20,83 (5.000) · cao $83,31 (20.000) → chi tiết `cost/cost-estimate.md`
