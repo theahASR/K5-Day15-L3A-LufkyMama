@@ -14,6 +14,7 @@ for _stream in (sys.stdout, sys.stderr, sys.stdin):
         pass
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+os.environ.setdefault("LUFKY_FALLBACK", "1")  # demo: API lỗi thì trả câu mẫu an toàn (eval/simulate không bật)
 
 
 def _where(e):

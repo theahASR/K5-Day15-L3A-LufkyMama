@@ -1,0 +1,65 @@
+{
+  "type": "logistic_regression",
+  "features": [
+    "Glucose",
+    "BloodPressure",
+    "BMI",
+    "Age"
+  ],
+  "impute_median": {
+    "Glucose": 117.0,
+    "BloodPressure": 72.0,
+    "BMI": 32.4,
+    "Age": 29.0
+  },
+  "scaler_mean": {
+    "Glucose": 121.67100977198697,
+    "BloodPressure": 72.1400651465798,
+    "BMI": 32.44820846905537,
+    "Age": 33.36644951140065
+  },
+  "scaler_scale": {
+    "Glucose": 29.979350764655695,
+    "BloodPressure": 12.265119260910417,
+    "BMI": 6.818562161484334,
+    "Age": 11.823797902547419
+  },
+  "coef": {
+    "Glucose": 1.151440347212751,
+    "BloodPressure": -0.029335042100825937,
+    "BMI": 0.7010240515082997,
+    "Age": 0.32945123925111325
+  },
+  "intercept": -0.8620642962742892,
+  "train_seed": 42,
+  "data_sha256": "6bfe5d0f379d17a0e0819b996407e3c09bf80febd4287f2ed212190dfff154af",
+  "valid_population": "Phụ nữ 21–81 tuổi; Glucose = đường huyết 2 giờ sau OGTT (mg/dL). Không đại diện người Việt.",
+  "train_ranges": {
+    "Glucose": [
+      56.0,
+      199.0
+    ],
+    "BloodPressure": [
+      24.0,
+      122.0
+    ],
+    "BMI": [
+      18.2,
+      67.1
+    ],
+    "Age": [
+      21.0,
+      81.0
+    ]
+  },
+  "test_auc": 0.7874,
+  "sklearn_check": {
+    "input": [
+      85,
+      66,
+      26.6,
+      31
+    ],
+    "prob": 0.051026819136361874
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "version": "kb-2026-11-27",
+  "note": "Nhóm tự viết lại bằng tiếng Việt (không chép nguyên văn). Mỗi đoạn đã mở nguồn và đối chiếu ngày 27/11/2026. Không dùng nội dung MedlinePlus vì trang đó cấm dùng cho hệ thống AI.",
+  "entries": [
+    {
+      "source_id": "KB01", "title": "Ngưỡng đường huyết lúc đói",
+      "content": "Đường huyết lúc đói (nhịn ăn ≥8 giờ): ≤99 mg/dL là bình thường; 100–125 mg/dL là vùng tiền tiểu đường; ≥126 mg/dL ở ngưỡng tiểu đường và cần bác sĩ xác nhận bằng xét nghiệm lặp lại. Quy đổi: mmol/L × 18 ≈ mg/dL.",
+      "source_url": "https://www.cdc.gov/diabetes/diabetes-testing/index.html", "version_or_date": "CDC, 15/05/2024",
+      "applicability": "Người lớn không mang thai, khi biết rõ là đo lúc đói", "limitations": "Một lần đo không đủ để chẩn đoán; máy đo tại nhà có sai số",
+      "tags": ["fasting", "nguong", "duong_huyet"], "verified": true
+    },
+    {
+      "source_id": "KB02", "title": "Ngưỡng HbA1c",
+      "content": "HbA1c phản ánh đường huyết trung bình khoảng 2–3 tháng: <5,7% là bình thường; 5,7–6,4% là tiền tiểu đường; ≥6,5% ở ngưỡng tiểu đường, cần bác sĩ xác nhận.",
+      "source_url": "https://www.cdc.gov/diabetes/diabetes-testing/index.html", "version_or_date": "CDC, 15/05/2024",
+      "applicability": "Người lớn không mang thai", "limitations": "Một số tình trạng thiếu máu, bệnh hemoglobin làm sai lệch HbA1c",
+      "tags": ["hba1c", "nguong"], "verified": true
+    },
+    {
+      "source_id": "KB03", "title": "Nghiệm pháp dung nạp glucose 2 giờ (OGTT)",
+      "content": "Nghiệm pháp dung nạp glucose: nhịn ăn qua đêm, uống dung dịch glucose, đo đường huyết sau 2 giờ. Kết quả 2 giờ: <140 mg/dL là bình thường; 140–199 mg/dL là tiền tiểu đường (rối loạn dung nạp glucose); ≥200 mg/dL ở ngưỡng tiểu đường, cần bác sĩ xác nhận. Đây KHÁC với đo đường huyết sau một bữa ăn bình thường.",
+      "source_url": "https://www.cdc.gov/diabetes/diabetes-testing/index.html", "version_or_date": "CDC, 15/05/2024",
+      "applicability": "Người lớn không mang thai, khi làm nghiệm pháp tại cơ sở y tế", "limitations": "Không áp dụng cho đường huyết đo sau bữa ăn thường hoặc đo ngẫu nhiên",
+      "tags": ["ogtt", "nguong", "sau_an"], "verified": true
+    },
+    {
+      "source_id": "KB04", "title": "Vì sao cần biết lúc đo",
+      "content": "Cùng một con số có ý nghĩa khác nhau tùy lúc đo: lúc đói, 2 giờ sau nghiệm pháp glucose, hay đo ngẫu nhiên. Nếu không rõ lúc đo, không thể so với ngưỡng nào, nên cần hỏi lại trước khi đánh giá.",
+      "source_url": "https://www.cdc.gov/diabetes/diabetes-testing/index.html", "version_or_date": "CDC, 15/05/2024",
+      "applicability": "Mọi câu hỏi có số đường huyết", "limitations": "Hướng dẫn chung, không thay tư vấn y tế",
+      "tags": ["boi_canh_do", "hoi_lai"], "verified": true
+    },
+    {
+      "source_id": "KB05", "title": "BMI ở người châu Á",
+      "content": "Chuyên gia WHO (2004) ghi nhận người châu Á có nguy cơ tiểu đường type 2 và tim mạch tăng ở BMI thấp hơn ngưỡng 25 kg/m² chung, và đề xuất các mốc hành động 23,0 (nguy cơ tăng) và 27,5 kg/m² (nguy cơ cao) cho người châu Á.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/14726171/", "version_or_date": "WHO Expert Consultation, Lancet 2004;363:157-63",
+      "applicability": "Người lớn châu Á", "limitations": "Mốc nguy cơ khác nhau giữa các nhóm dân số châu Á (22–25 kg/m²)",
+      "tags": ["bmi", "chau_a", "nguy_co"], "verified": true
+    },
+    {
+      "source_id": "KB06", "title": "Yếu tố nguy cơ tiểu đường type 2",
+      "content": "Các yếu tố làm tăng nguy cơ tiền tiểu đường và tiểu đường type 2: thừa cân hoặc béo phì; từ 45 tuổi trở lên; có cha mẹ hoặc anh chị em ruột bị tiểu đường type 2; vận động thể lực dưới 3 lần mỗi tuần; từng bị tiểu đường thai kỳ; gan nhiễm mỡ không do rượu.",
+      "source_url": "https://www.cdc.gov/diabetes/risk-factors/index.html", "version_or_date": "CDC, 15/05/2024",
+      "applicability": "Người lớn", "limitations": "Danh sách theo dân số Mỹ",
+      "tags": ["yeu_to_nguy_co", "tuoi", "gia_dinh"], "verified": true
+    },
+    {
+      "source_id": "KB07", "title": "Giảm cân và vận động để phòng ngừa",
+      "content": "Ở người có nguy cơ, giảm 5–7% cân nặng ban đầu và vận động ít nhất 30 phút mỗi ngày, 5 ngày mỗi tuần có thể phòng ngừa hoặc làm chậm tiểu đường type 2.",
+      "source_url": "https://www.niddk.nih.gov/health-information/diabetes/overview/preventing-type-2-diabetes", "version_or_date": "NIDDK, xem lại 11/2016",
+      "applicability": "Người lớn có nguy cơ, không mang thai", "limitations": "Người có bệnh tim, khớp nên hỏi bác sĩ mức vận động phù hợp",
+      "tags": ["loi_song", "van_dong", "giam_can", "phong_ngua"], "verified": true
+    },
+    {
+      "source_id": "KB08", "title": "Chương trình thay đổi lối sống",
+      "content": "Chương trình thay đổi lối sống có cấu trúc (ăn uống lành mạnh, tăng vận động, giảm cân vừa phải) được CDC ghi nhận có thể giảm khoảng một nửa nguy cơ tiểu đường type 2 ở người tiền tiểu đường.",
+      "source_url": "https://www.cdc.gov/diabetes-prevention/index.html", "version_or_date": "CDC National DPP, 15/05/2024",
+      "applicability": "Người tiền tiểu đường hoặc có nguy cơ", "limitations": "Kết quả từ chương trình kéo dài khoảng 1 năm tại Mỹ",
+      "tags": ["loi_song", "phong_ngua", "tien_tieu_duong"], "verified": true
+    },
+    {
+      "source_id": "KB09", "title": "Ăn uống, vận động, không hút thuốc",
+      "content": "WHO khuyến nghị phòng ngừa hoặc làm chậm tiểu đường type 2 bằng: ăn uống lành mạnh, vận động thể lực đều đặn (ít nhất 150 phút cường độ vừa mỗi tuần), giữ cân nặng hợp lý và không hút thuốc lá.",
+      "source_url": "https://www.who.int/news-room/fact-sheets/detail/diabetes", "version_or_date": "WHO fact sheet, 11/11/2026",
+      "applicability": "Người lớn", "limitations": "Khuyến nghị chung cho cộng đồng",
+      "tags": ["loi_song", "an_uong", "van_dong", "thuoc_la"], "verified": true
+    },
+    {
+      "source_id": "KB10", "title": "Hạ đường huyết — nhận biết và xử trí ban đầu",
+      "content": "Đường huyết dưới 70 mg/dL là thấp; dưới 55 mg/dL là hạ nặng. Dấu hiệu: run, vã mồ hôi, chóng mặt, choáng. Xử trí ban đầu khi người bệnh còn tỉnh và nuốt được: ăn hoặc uống 15 g đường hấp thu nhanh, chờ 15 phút rồi đo lại, nếu vẫn dưới 70 mg/dL thì lặp lại. Hạ đường huyết nặng cần điều trị cấp cứu. (Quy tắc an toàn của nhóm, không phải trích CDC: người lơ mơ, ngất, không nuốt được thì gọi 115 ngay.)",
+      "source_url": "https://www.cdc.gov/diabetes/treatment/treatment-low-blood-sugar-hypoglycemia.html", "version_or_date": "CDC, 15/05/2024",
+      "applicability": "Mọi người có số đo < 70 mg/dL hoặc triệu chứng hạ đường huyết", "limitations": "Không thay hướng dẫn riêng của bác sĩ điều trị",
+      "tags": ["cap_cuu", "ha_duong_huyet"], "verified": true
+    },
+    {
+      "source_id": "KB11", "title": "Dấu hiệu nhiễm toan ceton (DKA) — cấp cứu",
+      "content": "Đường huyết rất cao kèm thở nhanh sâu, hơi thở mùi trái cây, buồn nôn hoặc nôn, khát nhiều, mệt lả hoặc lơ mơ có thể là nhiễm toan ceton — tình trạng cấp cứu. Cần đến khoa cấp cứu hoặc gọi cấp cứu ngay (Việt Nam: 115), không tự xử trí tại nhà.",
+      "source_url": "https://www.cdc.gov/diabetes/about/diabetic-ketoacidosis.html", "version_or_date": "CDC, truy cập 27/11/2026",
+      "applicability": "Mọi người có số đo rất cao kèm triệu chứng", "limitations": "Không liệt kê hết mọi dấu hiệu cấp cứu",
+      "tags": ["cap_cuu", "tang_duong_huyet", "dka"], "verified": true
+    },
+    {
+      "source_id": "KB12", "title": "Tiểu đường thai kỳ — ngoài phạm vi sàng lọc thường",
+      "content": "Phụ nữ mang thai thường được bác sĩ xét nghiệm tiểu đường thai kỳ trong khoảng tuần 24–28. Ngưỡng và cách xử trí khác người không mang thai, nên cần bác sĩ sản khoa theo dõi; không tự ăn kiêng chặt hay giảm cân khi mang thai.",
+      "source_url": "https://www.niddk.nih.gov/health-information/diabetes/overview/what-is-diabetes/gestational", "version_or_date": "NIDDK, xem lại 05/2017",
+      "applicability": "Phụ nữ đang mang thai", "limitations": "Chi tiết ngưỡng thai kỳ do bác sĩ sản khoa quyết định",
+      "tags": ["thai_ky", "ngoai_pham_vi"], "verified": true
+    },
+    {
+      "source_id": "KB13", "title": "Phạm vi của công cụ",
+      "content": "Công cụ chỉ đưa thông tin sàng lọc tham khảo và gợi ý lối sống. Không chẩn đoán, không kê đơn, không tính liều thuốc hay insulin, không khuyên ngừng hoặc đổi thuốc. Mọi quyết định về thuốc và chẩn đoán do bác sĩ thực hiện sau khi khám và xét nghiệm.",
+      "source_url": "internal:spec.md#4", "version_or_date": "LufkyMama spec, 27/11/2026",
+      "applicability": "Mọi câu hỏi", "limitations": "Quy tắc nội bộ của nhóm, không phải nguồn y khoa",
+      "tags": ["pham_vi", "tu_choi", "thuoc"], "verified": true
+    }
+  ]
+}
