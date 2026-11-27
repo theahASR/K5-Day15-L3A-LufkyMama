@@ -1,0 +1,82 @@
+[
+  {
+    "code": "BYT-5481-CD",
+    "category": "diagnosis_threshold",
+    "title": "Ngưỡng đường huyết & tiêu chuẩn tầm soát đái tháo đường típ 2 (QĐ 5481/QĐ-BYT & ADA)",
+    "source": "Bộ Y tế Việt Nam — Quyết định 5481/QĐ-BYT (2020) & ADA Standards of Care",
+    "tags": ["chẩn đoán", "ngưỡng", "đường huyết", "hba1c", "tiền tiểu đường", "xét nghiệm", "fpg", "ogtt"],
+    "text": "Các ngưỡng tham khảo lâm sàng: (1) Đường huyết lúc đói (FPG, nhịn ăn >=8 giờ): Bình thường <100 mg/dL (<5.6 mmol/L); Tiền tiểu đường 100–125 mg/dL (5.6–6.9 mmol/L); Ngưỡng nghi đái tháo đường >=126 mg/dL (>=7.0 mmol/L). (2) Đường huyết sau nghiệm pháp dung nạp glucose 2 giờ (OGTT 75g): Bình thường <140 mg/dL; Tiền tiểu đường 140–199 mg/dL; Ngưỡng nghi đái tháo đường >=200 mg/dL (>=11.1 mmol/L). (3) HbA1c: Bình thường <5.7%; Tiền tiểu đường 5.7–6.4%; Ngưỡng nghi đái tháo đường >=6.5%. Chẩn đoán chính thức bắt buộc do bác sĩ thực hiện và thường cần xét nghiệm lặp lại xác nhận."
+  },
+  {
+    "code": "WHO-ASIA-BMI",
+    "category": "bmi_threshold",
+    "title": "Phân loại BMI dành cho người trưởng thành châu Á (WHO / IDI & WPRO)",
+    "source": "WHO Asia-Pacific / Viện Dinh dưỡng Quốc gia Việt Nam",
+    "tags": ["bmi", "cân nặng", "thừa cân", "béo phì", "gầy"],
+    "text": "Ngưỡng BMI áp dụng cho người châu Á (Việt Nam): Thiếu cân <18.5; Bình thường 18.5–22.9; Thừa cân 23.0–24.9; Tiền béo phì / Béo phì độ I: 25.0–29.9; Béo phì độ II >=30.0. Người châu Á có thể tăng nguy cơ đái tháo đường ngay cả khi BMI không quá cao (từ >=23 trở lên) nếu có mỡ nội tạng, tuổi >=45 hoặc tiền sử gia đình."
+  },
+  {
+    "code": "BYT-5481-DD",
+    "category": "nutrition_general",
+    "title": "Nguyên tắc dinh dưỡng nền tảng kiểm soát đường huyết (QĐ 5481/QĐ-BYT)",
+    "source": "Bộ Y tế Việt Nam — Quyết định 5481/QĐ-BYT (2020) & WHO",
+    "tags": ["dinh dưỡng", "ăn uống", "thực đơn", "tinh bột", "rau", "đường", "chất xơ"],
+    "text": "Nguyên tắc đĩa ăn cân bằng cho người có nguy cơ/tiền tiểu đường: 1/2 đĩa là rau xanh không tinh bột, 1/4 đĩa là đạm nạc (cá, thịt gà bỏ da, đậu phụ, trứng), 1/4 đĩa là tinh bột chậm giàu chất xơ. Thứ tự ăn khuyến nghị: ăn rau trước -> đạm -> tinh bột sau cùng để làm chậm đỉnh đường huyết sau ăn. Giảm đường tự do <10% năng lượng/ngày (cắt trà sữa, nước ngọt, bánh kẹo), bổ sung 25–30g chất xơ/ngày, không bỏ bữa đột ngột."
+  },
+  {
+    "code": "GI-VN-01",
+    "category": "nutrition_vietnam_swap",
+    "title": "Đổi món Việt theo chỉ số đường huyết (GI) — Nhóm tinh bột & cơm văn phòng",
+    "source": "Viện Dinh dưỡng Quốc gia Việt Nam / International GI Tables (ĐH Sydney)",
+    "tags": ["cơm trắng", "cơm tấm", "gạo lứt", "phở", "bún", "bánh mì", "văn phòng", "gi", "thực đơn"],
+    "text": "Hoán đổi thực tế cho bữa ăn Việt: (1) Cơm trắng / cơm tấm (GI cao ~80–89) -> giảm 1/3 đến 1/2 lượng cơm trắng, trộn gạo lứt (GI ~50–55) hoặc thay một phần bằng khoai lang luộc/ngô luộc; khi ăn cơm tấm chọn sườn nạc/ức gà nướng ít sốt ngọt, thêm gấp đôi dưa leo/cà chua/rau luộc, bỏ mỡ hành nhiều dầu. (2) Bữa sáng xôi nếp hoặc bánh mì trắng (GI cao ~85–95) -> đổi sang bún/phở ít bánh nhiều thịt nạc + nhiều giá rau thơm, hoặc 1 lát bánh mì đen/nguyên cám kèm trứng luộc."
+  },
+  {
+    "code": "GI-VN-02",
+    "category": "nutrition_vietnam_swap",
+    "title": "Đổi đồ uống & bữa phụ Việt theo chỉ số GI",
+    "source": "Viện Dinh dưỡng Quốc gia Việt Nam / WHO Sugar Guidelines",
+    "tags": ["trà sữa", "nước ngọt", "đồ uống", "trái cây", "ăn vặt", "bữa phụ"],
+    "text": "Đồ uống và bữa phụ an toàn: (1) Thay trà sữa có đường, cà phê sữa đặc, nước ngọt đóng chai bằng trà xanh/trà thảo mộc không đường, nước lọc, cà phê đen không đường hoặc sữa hạt không đường. (2) Trái cây: ưu tiên trái cây GI thấp ăn nguyên múi/nguyên miếng (ổi, bưởi, táo, thanh long, cam) khoảng 1 khẩu phần vừa (~100g) sau bữa chính 1–2 giờ; hạn chế nước ép trái cây lọc bỏ xác, sầu riêng, nhãn, vải, xoài chín quá ngọt."
+  },
+  {
+    "code": "BYT-5481-VD",
+    "category": "exercise_lifestyle",
+    "title": "Khuyến nghị vận động & thay đổi lối sống (QĐ 5481/QĐ-BYT)",
+    "source": "Bộ Y tế Việt Nam — Quyết định 5481/QĐ-BYT (2020)",
+    "tags": ["vận động", "tập thể dục", "đi bộ", "lối sống", "ngủ", "thuốc lá", "rượu bia", "văn phòng"],
+    "text": "Vận động thể lực cường độ trung bình tối thiểu 150 phút/tuần (tương đương >=30 phút/ngày, ít nhất 5 ngày/tuần, không nghỉ quá 2 ngày liên tiếp) như đi bộ nhanh, đạp xe, bơi lội. Với người ngồi văn phòng: đứng dậy vận động nhẹ 2–3 phút sau mỗi 30–60 phút ngồi liên tục; đi bộ nhẹ 10–15 phút sau bữa ăn chính giúp giảm tăng đường huyết sau ăn. Ngủ đủ 7–8 giờ, không hút thuốc lá, hạn chế tối đa rượu bia."
+  },
+  {
+    "code": "BYT-5481-CC",
+    "category": "emergency_red_flag",
+    "title": "Cờ đỏ cấp cứu tăng đường huyết cấp (DKA/HHS) và hạ đường huyết cấp",
+    "source": "Bộ Y tế Việt Nam — Quyết định 5481/QĐ-BYT (2020) & ADA",
+    "tags": ["cấp cứu", "115", "hạ đường huyết", "tăng đường huyết", "toan ceton", "buồn nôn", "thở gấp", "lơ mơ", "tức ngực", "run tay"],
+    "text": "Cờ đỏ cấp cứu cần xử trí y tế ngay: (1) Hạ đường huyết (<70 mg/dL hoặc <3.9 mmol/L kèm run tay, vã mồ hôi lạnh, choáng, lơ mơ): TUYỆT ĐỐI KHÔNG ăn kiêng hay cắt tinh bột lúc này; nếu còn tỉnh táo, áp dụng xử trí nhanh 15g đường hấp thu nhanh (nước đường/nước trái cây/kẹo ngọt) và kiểm tra lại sau 15 phút, đồng thời liên hệ bác sĩ/cấp cứu 115 ngay nếu triệu chứng không giảm hoặc người bệnh lơ mơ (không đổ nước vào miệng người lơ mơ). (2) Tăng đường huyết nặng (>=250–300 mg/dL, đặc biệt kèm khát dữ dội, buồn nôn/nôn, đau bụng, thở nhanh sâu, tức ngực, chóng mặt, lơ mơ): nguy cơ nhiễm toan ceton (DKA) hoặc tăng áp lực thẩm thấu — NGỪNG tự xử lý bằng thực đơn tại nhà, ĐẾN CẤP CỨU hoặc GỌI 115 NGAY LẬP TỨC."
+  },
+  {
+    "code": "BYT-5481-TK",
+    "category": "pregnancy_scope",
+    "title": "Phạm vi tầm soát đái tháo đường thai kỳ (QĐ 5481/QĐ-BYT)",
+    "source": "Bộ Y tế Việt Nam — Quyết định 5481/QĐ-BYT (2020)",
+    "tags": ["mang thai", "thai kỳ", "bầu", "sản khoa", "đái tháo đường thai kỳ"],
+    "text": "Phụ nữ mang thai có tiêu chuẩn tầm soát (nghiệm pháp OGTT 75g ở tuần 24–28 với ngưỡng riêng: đói >=92 mg/dL, 1h >=180 mg/dL, 2h >=153 mg/dL) và nhu cầu dinh dưỡng hoàn toàn khác người trưởng thành không mang thai. Không dùng mô hình sàng lọc tiểu đường type 2 phổ thông để kết luận và TUYỆT ĐỐI KHÔNG tự ý áp dụng chế độ ăn kiêng chặt/giảm cân khi đang mang thai; cần thăm khám trực tiếp bác sĩ sản khoa hoặc nội tiết."
+  },
+  {
+    "code": "BYT-5481-EV",
+    "category": "folk_remedy_evidence",
+    "title": "Mẹo dân gian / thảo dược và ranh giới điều trị bằng chứng",
+    "source": "Bộ Y tế Việt Nam — Quyết định 5481/QĐ-BYT (2020)",
+    "tags": ["lá ổi", "mướp đắng", "khổ qua", "thuốc nam", "mẹo dân gian", "lá cây", "chữa khỏi", "bỏ thuốc"],
+    "text": "Chưa có đủ bằng chứng lâm sàng tin cậy chứng minh nước lá ổi, mướp đắng rừng hay các mẹo dân gian có thể chữa khỏi đái tháo đường hoặc thay thế khám, xét nghiệm và điều trị y khoa chuẩn. Tự ý dùng thảo dược thay cho việc đi khám hoặc tự bỏ thuốc điều trị có thể khiến đường huyết tăng kéo dài, gây biến chứng mắt, thận, thần kinh và tim mạch."
+  },
+  {
+    "code": "BYT-5481-RX",
+    "category": "scope_medication",
+    "title": "Ranh giới thẩm quyền: không chẩn đoán khẳng định, không kê đơn/chỉnh liều thuốc",
+    "source": "Bộ Y tế Việt Nam — Quyết định 5481/QĐ-BYT (2020)",
+    "tags": ["thuốc", "metformin", "insulin", "kê đơn", "liều", "ngừng thuốc", "bác sĩ"],
+    "text": "Hệ thống chỉ hỗ trợ sàng lọc nguy cơ tham khảo và tư vấn lối sống/dinh dưỡng dựa trên tài liệu chuẩn; KHÔNG chẩn đoán khẳng định bệnh, KHÔNG kê đơn thuốc, KHÔNG tính liều Metformin/Insulin và KHÔNG khuyên bệnh nhân ngừng hay đổi thuốc huyết áp/đái tháo đường đang dùng (kể cả khi người hỏi tự xưng là nhân viên y tế). Mọi chỉ định thuốc phải do bác sĩ trực tiếp thăm khám quyết định."
+  }
+]
