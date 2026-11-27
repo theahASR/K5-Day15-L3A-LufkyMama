@@ -11,10 +11,10 @@
 
 | STT | Họ và tên | Mã học viên | Vai trò | Phần việc chính |
 |---|---|---|---|---|
-| 1 | Vũ Nguyễn Hoàng Minh | 2A202603541 | Đội trưởng |  |
-| 2 | Bùi Thế Anh | 2A202603546 | Thành viên |  |
-| 3 | Nguyễn Anh Tú | 2A202603434 | Thành viên |  |
-| 4 | Hồ Đức Mạnh | 2A202603609 | Thành viên |  |
+| 1 | Vũ Nguyễn Hoàng Minh | 2A202603541 | Đội trưởng | Tech Lead, backend, tích hợp, evaluation |
+| 2 | Bùi Thế Anh | 2A202603546 | Thành viên | Data mining, mô hình ML |
+| 3 | Nguyễn Anh Tú | 2A202603434 | Thành viên | Chatbot AI, knowledge base, prompt |
+| 4 | Hồ Đức Mạnh | 2A202603609 | Thành viên | Nghiên cứu người dùng, giao diện, demo |
 
 **Quy tắc điền**
 - **Lớp:** `L3A` hoặc `L3B`. **Track:** một chữ `A` (EdTech), `B` (Y tế), `C` (Du lịch), `D` (Thương mại điện tử), `E` (Tài chính) hoặc `F` (Làn khác). **Link repo:** link GitHub công khai của nhóm.
