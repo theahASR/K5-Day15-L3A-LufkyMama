@@ -49,5 +49,5 @@ Coding agent Claude Code viết bản đầu code, script đào data, tài liệ
 | 4 | Bản chạy thử làm trọn lát cắt | `codebase/` · `ml/` · `data/knowledge_base.json` · lệnh ở trên |
 | 5 | Định nghĩa "tốt" + bộ câu thử | `data/DATA_CARD.md` · `eval/benchmark.csv` (30 câu) · `eval/metric_spec.yaml` · `eval/README.md` |
 | 6 | Mô phỏng chi phí khi dùng thật | `cost/personas.yaml` · `cost/simulate-N.csv` · `cost/cost-estimate.md` |
-| 7 | Slide + demo + video dự phòng | `demo-slides.pdf` · link video: **____** (kịch bản: `docs/VIDEO_SCRIPT.md`) |
+| 7 | Slide + demo + video dự phòng | `demo-slides.pdf` · link video: https://drive.google.com/file/d/1UdxZRih6MQq_qQkwUHtvIF-jtcfTa8h6/view?usp=sharing (kịch bản: `docs/VIDEO_SCRIPT.md`) |
 | + | *Bonus:* người dùng thử | `validation/log.md` |

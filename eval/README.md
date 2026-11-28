@@ -51,10 +51,10 @@
 |---|---|---|---|---|---|---|
 | thử | `run-try` (không tính) | gemini-3.1-flash-lite | 3 câu đầu, kiểm nối model | — | — | — |
 | mock | `run-mock` (không tính) | fake | 30 câu chế độ giả, kiểm luồng | — | — | — |
-| 1 | `run-1@20261128-010841` | gemini-3.1-flash-lite | workflow cố định commit `35405af` | 28/30 *(agent sơ bộ)* | 93,3% | ĐẠT *(sơ bộ)* |
-| 2 | `run-2@20261128-011951` | gemini-3.1-flash-lite | + không áp ngưỡng người lớn cho tuyến ngoài phạm vi, căn cứ kèm phạm vi áp dụng (commit `23013c6`) | 29/30 *(agent sơ bộ)* | 96,7% | ĐẠT *(sơ bộ)* |
+| 1 | `run-1@20261128-010841` | gemini-3.1-flash-lite | workflow cố định commit `35405af` | 28/30 *(đã xác nhận — Hồ Đức Mạnh, D1=R0)* | 93,3% | ĐẠT |
+| 2 | `run-2@20261128-011951` | gemini-3.1-flash-lite | + không áp ngưỡng người lớn cho tuyến ngoài phạm vi, căn cứ kèm phạm vi áp dụng (commit `23013c6`) | 29/30 *(đã xác nhận — Hồ Đức Mạnh, D1=R0)* | 96,7% | ĐẠT |
 
-Cột `pass` của `eval/run-1.csv`, `eval/run-2.csv` để trống cho người chấm; bản sơ bộ của agent ở `eval/grading/`. Lượt chạy lại vì lỗi kỹ thuật hoặc lượt sau CP4: ghi thêm dòng, không sửa dòng cũ.
+Cột `pass` của `eval/run-1.csv`, `eval/run-2.csv` đã được xác nhận và nhập qua `eval/grading/import_verdicts.py` (xem `eval/grading/GRADING_DECISIONS.md` và `eval/grading/final_run-N.csv`). Lượt chạy lại vì lỗi kỹ thuật hoặc lượt sau CP4: ghi thêm dòng, không sửa dòng cũ.
 
 ## 6. Lỗi chính
 

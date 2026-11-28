@@ -17,12 +17,12 @@
 | CP3-04 | 3 | LLM thật | `codebase/ai.py` | DONE | gemini-3.1-flash-lite |
 | CP3-05 | 3 | Safety | `codebase/tools.py`, `agent.py` | DONE | Safety 30/30 cả hai lượt (sơ bộ) |
 | CP3-06 | 3 | 20–30 câu | `eval/benchmark.csv` | DONE | 30 câu |
-| CP3-07 | 3 | Lượt 1 | `eval/run-1.csv` | PARTIAL | chạy xong; `pass` chờ người duyệt |
+| CP3-07 | 3 | Lượt 1 | `eval/run-1.csv` | DONE | 28/30 (93%) đã xác nhận (D1=R0, Hồ Đức Mạnh); `run.py score` pass |
 | CP3-08 | 3 | simulate --try | `cost/simulate-try*` (không commit) | DONE | |
-| CP3-09 | 3 | Video 30s | `docs/VIDEO_SCRIPT.md` | BLOCKED | cần người quay (H9) |
-| CP4-01 | 4 | Phân tích lỗi | `eval/report.md` | DONE | 3 nhóm lỗi thật |
+| CP3-09 | 3 | Video 30s | `README.md` · `docs/VIDEO_SCRIPT.md` | DONE | https://drive.google.com/file/d/1UdxZRih6MQq_qQkwUHtvIF-jtcfTa8h6/view?usp=sharing |
+| CP4-01 | 4 | Phân tích lỗi | `eval/report.md` | DONE | 3 nhóm lỗi thật (chế độ CONFIRMED) |
 | CP4-02 | 4 | 1 cải tiến | commit `23013c6` | DONE | |
-| CP4-03 | 4 | Lượt 2 | `eval/run-2.csv` | PARTIAL | `pass` chờ người duyệt |
+| CP4-03 | 4 | Lượt 2 | `eval/run-2.csv` | DONE | 29/30 (97%) đã xác nhận (D1=R0, Hồ Đức Mạnh); `run.py score` pass |
 | CP4-04 | 4 | Cost 50 phiên | `cost/simulate-1*`, `cost/cost-estimate.md` | DONE | |
 | CP4-05 | 4 | Người dùng thử (bonus) | `validation/` | BLOCKED | H10 |
 | CP4-06 | 4 | Slide PDF 8 trang | `demo-slides.pdf` | DONE | |
