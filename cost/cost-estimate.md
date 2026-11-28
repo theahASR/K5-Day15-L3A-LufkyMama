@@ -1,12 +1,14 @@
 # Chi phí khi dùng thật
 
 <!-- AUTO:cost:start -->
-Chế độ tỉ lệ đạt: **CONFIRMED**. Tỉ lệ đạt lượt 2 dùng để tính: 29/30 (96.7%). Token đo thật: 50 phiên, 194001 vào / 35917 ra (`cost/simulate-1.csv`).
+Chế độ tỉ lệ đạt: **PRELIMINARY**. Tỉ lệ đạt lượt 2 dùng để tính: 29/30 (96.7%). Token đo thật: 50 phiên, 194001 vào / 35917 ra (`cost/simulate-1.csv`).
 
 | Model | Đo hay ước tính | / phiên | / task thành công | / người / tháng | / tháng thấp (1000) | cơ sở (5000) | cao (20000) |
 |---|---|---|---|---|---|---|---|
 | gemini-3.1-flash-lite (0.25 / 1.50 $/1M) | token đo trên model này | $0.0020 | $0.0021 | $0.0042 | $4.17 | $20.83 | $83.31 |
 | gemini-3.8-flash (1.50 / 7.50 $/1M) | ƯỚC TÍNH: token của model khác × giá model này | $0.0112 | $0.0116 | $0.0228 | $22.81 | $114.05 | $456.18 |
+
+Nếu người chấm chọn cách hiểu chặt (lượt 2 = 25/30 (83.3%)): chi phí / task thành công gemini-3.1-flash-lite $0.0025 · gemini-3.8-flash $0.0134.
 <!-- AUTO:cost:end -->
 
 

@@ -30,9 +30,9 @@ def read(path):
         return r.fieldnames, list(r)
 
 
-def serialize(fields, rows, lineterminator="\r\n"):
+def serialize(fields, rows):
     buf = io.StringIO()
-    w = csv.DictWriter(buf, fieldnames=fields, extrasaction="ignore", lineterminator=lineterminator)  # cùng dialect với eval/run_eval.py
+    w = csv.DictWriter(buf, fieldnames=fields, extrasaction="ignore")  # cùng dialect với eval/run_eval.py
     w.writeheader()
     w.writerows(rows)
     return ("﻿" + buf.getvalue()).encode("utf-8")
@@ -91,9 +91,8 @@ def main():
     a = ap.parse_args()
     run_path = a.run_path or os.path.join(ROOT, "eval", "run-%d.csv" % a.run)
     original = open(run_path, "rb").read()
-    lineterm = "\r\n" if b"\r\n" in original else "\n"
     fields, rows = read(run_path)
-    if serialize(fields, rows, lineterm) != original:
+    if serialize(fields, rows) != original:
         sys.exit("DỪNG: không tái tạo được đúng byte của %s — không ghi để tránh làm đổi dữ liệu gốc." % run_path)
     run_id = rows[0]["run_id"]
     _, final = read(a.final)
@@ -118,7 +117,7 @@ def main():
     if not a.apply:
         print("Chạy thử — chưa ghi. Thêm --apply để ghi cột pass, ghi_chu vào %s" % rel(run_path))
         return
-    open(run_path, "wb").write(serialize(fields, new, lineterm))
+    open(run_path, "wb").write(serialize(fields, new))
     _, check = read(run_path)
     for old, now in zip(rows, check):
         for k in fields:
