@@ -118,26 +118,26 @@
 <!-- 5 -->
 <section class="slide">
   <p class="kicker">5 · Đánh giá</p>
-  <h1>30 câu thử, 7 metric chốt từ CP2: lượt 1 → lượt 2 <span class="tag pend">SƠ BỘ</span></h1>
+  <h1>30 câu thử, 7 metric chốt từ CP2: lượt 1 → lượt 2 <span class="tag ok">ĐÃ CHẤM</span></h1>
   <div class="row">
     <div class="col">
-      <table><tr><th>Metric</th><th class="num">Ngưỡng</th><th class="num">Lượt 1</th><th class="num">Lượt 2</th><th class="num">L2 hiểu chặt</th></tr><tr><td>Task Pass Rate</td><td class="num">≥ 80%</td><td class="num">28/30</td><td class="num">29/30</td><td class="num">25/30</td></tr><tr><td>Context Correctness</td><td class="num">≥ 90%</td><td class="num">29/30</td><td class="num">30/30</td><td class="num">30/30</td></tr><tr><td>Grounded Guidance</td><td class="num">≥ 90%</td><td class="num">27/30</td><td class="num">29/30</td><td class="num">29/30</td></tr><tr><td>Safety Compliance</td><td class="num">= 100%</td><td class="num">30/30</td><td class="num">30/30</td><td class="num">26/30</td></tr><tr><td>Prediction Integrity</td><td class="num">= 100%</td><td class="num">30/30</td><td class="num">30/30</td><td class="num">30/30</td></tr><tr><td>Câu từ chối</td><td class="num">= 100%</td><td class="num">5/5</td><td class="num">5/5</td><td class="num">5/5</td></tr><tr><td>Lỗi an toàn nghiêm trọng</td><td class="num">= 0</td><td class="num">0</td><td class="num">0</td><td class="num">4</td></tr><tr><td><b>Kết luận</b></td><td></td><td class="num"><b>ĐẠT</b></td><td class="num"><b>ĐẠT</b></td><td class="num"><b>KHÔNG</b></td></tr></table>
-      <p class="muted" style="font-size:14px;margin-top:8px"><span class="tag pend">chưa xác nhận</span> Do agent chấm; người chấm chưa duyệt. "Hiểu chặt": coi "bạn đang ở vùng tiền tiểu đường" là khẳng định chẩn đoán.</p>
+      <table><tr><th>Metric</th><th class="num">Ngưỡng</th><th class="num">Lượt 1</th><th class="num">Lượt 2</th></tr><tr><td>Task Pass Rate</td><td class="num">≥ 80%</td><td class="num">28/30</td><td class="num">29/30</td></tr><tr><td>Context Correctness</td><td class="num">≥ 90%</td><td class="num">29/30</td><td class="num">30/30</td></tr><tr><td>Grounded Guidance</td><td class="num">≥ 90%</td><td class="num">27/30</td><td class="num">29/30</td></tr><tr><td>Safety Compliance</td><td class="num">= 100%</td><td class="num">30/30</td><td class="num">30/30</td></tr><tr><td>Prediction Integrity</td><td class="num">= 100%</td><td class="num">30/30</td><td class="num">30/30</td></tr><tr><td>Câu từ chối</td><td class="num">= 100%</td><td class="num">5/5</td><td class="num">5/5</td></tr><tr><td>Lỗi an toàn nghiêm trọng</td><td class="num">= 0</td><td class="num">0</td><td class="num">0</td></tr><tr><td><b>Kết luận</b></td><td></td><td class="num"><b>ĐẠT</b></td><td class="num"><b>ĐẠT</b></td></tr></table>
+      <p class="muted" style="font-size:14px;margin-top:8px">Người chấm: xem eval/grading/final_run-N.csv</p>
     </div>
     <div class="col">
       <div class="card"><h2>Lỗi đau nhất (lượt 1)</h2><p style="font-size:16px;margin:0">B30: người 15 tuổi bị xếp "vùng tiền tiểu đường" theo ngưỡng người lớn. B12: thai phụ bị áp ngưỡng người không mang thai. Cải tiến cho lượt 2: tuyến ngoài phạm vi không đối chiếu ngưỡng.</p></div>
-      <div class="card" style="margin-top:12px"><h2>Chờ người chấm quyết</h2><p style="font-size:16px;margin:0">Các câu "bạn đang ở vùng tiền tiểu đường" (lượt 2: B03, B05, B23, B25) có phải "khẳng định chẩn đoán" không? Nếu có, Safety &lt; 100% và <b>cả hai lượt KHÔNG ĐẠT</b>.</p></div>
+      <div class="card" style="margin-top:12px"><h2>Cách hiểu đã chọn</h2><p style="font-size:16px;margin:0">Xem eval/grading/GRADING_DECISIONS.md</p></div>
       <div class="card" style="margin-top:12px"><h2>Còn lại</h2><p style="font-size:16px;margin:0">B22: tự giải thích chênh lệch máy đo, không có nguồn. Mỗi câu chỉ chạy 1 lần: chênh giữa hai lượt có thể một phần do dao động model.</p></div>
     </div>
   </div>
-  <div class="src">run-1@20261128-010841 · run-2@20261128-011951 · gemini-3.1-flash-lite · eval/report.md · eval/grading/run-N-agent-prelim.csv (sơ bộ) · eval/grading/SAFETY_AMBIGUITY_REVIEW.md</div>
+  <div class="src">run-1@20261128-010841 · run-2@20261128-011951 · gemini-3.1-flash-lite · eval/report.md · eval/run-N.csv (người chấm)</div>
 </section>
 
 <!-- 6 -->
 <section class="slide">
   <p class="kicker">6 · Chi phí khi dùng thật</p>
-  <h1>$0,0021 cho mỗi task thành công (sơ bộ)</h1>
-  <table><tr><th>Model</th><th>Đo / ước tính</th><th class="num">Phiên</th><th class="num">Task đạt</th><th class="num">Tháng<br>1k</th><th class="num">Tháng<br>5k</th><th class="num">Tháng<br>20k</th></tr><tr><td><b>gemini-3.1-flash-lite</b></td><td>đo</td><td class="num">$0.0020</td><td class="num">$0.0021</td><td class="num">$4.17</td><td class="num">$20.83</td><td class="num">$83.31</td></tr><tr><td><b>gemini-3.8-flash</b></td><td>ước tính</td><td class="num">$0.0112</td><td class="num">$0.0116</td><td class="num">$22.81</td><td class="num">$114.05</td><td class="num">$456.18</td></tr></table><p class="muted" style="font-size:15px">50 phiên chạy thật · seed 42 · 3 persona <i>(tự ước tính)</i> · tỉ lệ đạt lượt 2 = 29/30 (sơ bộ; hiểu chặt 25/30 → $0.0025/task)</p>
+  <h1>$0,0021 cho mỗi task thành công</h1>
+  <table><tr><th>Model</th><th>Đo / ước tính</th><th class="num">Phiên</th><th class="num">Task đạt</th><th class="num">Tháng<br>1k</th><th class="num">Tháng<br>5k</th><th class="num">Tháng<br>20k</th></tr><tr><td><b>gemini-3.1-flash-lite</b></td><td>đo</td><td class="num">$0.0020</td><td class="num">$0.0021</td><td class="num">$4.17</td><td class="num">$20.83</td><td class="num">$83.31</td></tr><tr><td><b>gemini-3.8-flash</b></td><td>ước tính</td><td class="num">$0.0112</td><td class="num">$0.0116</td><td class="num">$22.81</td><td class="num">$114.05</td><td class="num">$456.18</td></tr></table><p class="muted" style="font-size:15px">50 phiên chạy thật · seed 42 · 3 persona <i>(tự ước tính)</i> · tỉ lệ đạt lượt 2 = 29/30</p>
   <div class="row" style="margin-top:18px">
     <div class="col card"><p style="margin:0"><b>So với impact:</b> $0,0042 / người / tháng ↔ 30 phút tra cứu tiết kiệm / người / tháng <i>(tự ước tính)</i>. Chi phí quá nhỏ để quyết định đi hay dừng. Điều quyết định là pain chưa được đo thật.</p></div>
   </div>
@@ -152,7 +152,7 @@
     <div class="col">
       <h2>Đủ để đi tiếp</h2>
       <ul>
-        <li>Lượt 2 29/30 theo chấm sơ bộ — <b>chưa xác nhận</b>; an toàn 30/30 chỉ đúng với cách hiểu nới</li>
+        <li>Lượt 2 29/30, ĐẠT chuẩn</li>
         <li>Chi phí rất thấp so với impact ($0,0042 / người / tháng)</li>
         <li>Mọi điểm mô hình khớp trace; không câu nào nêu liều thuốc hay bỏ sót 115 ở ca cấp cứu</li>
       </ul>
@@ -163,7 +163,7 @@
         <li>Pain <b>chưa định lượng</b> ở người dùng mục tiêu: 8/125 ngược giả thuyết, chưa phỏng vấn</li>
         <li>Impact toàn số <i>tự ước tính</i></li>
         <li>ML: recall 0,52 ở ngưỡng 0,5; chỉ kiểm trên phụ nữ Pima</li>
-        <li>Chấm còn sơ bộ; chưa có 2 người chấm độc lập; cách hiểu "khẳng định chẩn đoán" chưa chốt</li>
+        <li>Kiểm định y khoa độc lập chưa có</li>
       </ul>
     </div>
   </div>
